@@ -357,7 +357,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .cat-card {
   position: relative;
   display: grid;
-  grid-template-columns: 80px 1fr auto auto;
+  grid-template-columns: 1fr auto auto;
   align-items: center;
   gap: 32px;
   padding: 28px 32px;
@@ -1026,9 +1026,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     justify-content: center;
   }
   .section { padding: 64px 20px; }
-  .section-head { grid-template-columns: 1fr; }
-  .cat-card { grid-template-columns: auto 1fr auto; padding: 20px; gap: 16px; }
+  .section-head {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+  .cat-card { grid-template-columns: 1fr auto; padding: 20px; gap: 16px; }
   .cat-card .cat-tag { display: none; }
+  .strip-track { animation-duration: 22s; }
   .cat-desc { font-size: 14px; }
   .cat-arrow { width: 44px; height: 44px; }
   .cat-hero { padding: 40px 20px 32px; }
@@ -1038,9 +1044,25 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .footer { padding: 28px 20px 18px; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; padding-bottom: 20px; }
   .footer-bottom { flex-direction: column; gap: 8px; padding-top: 14px; }
-  .chat-panel { right: 12px; bottom: 12px; height: calc(100vh - 96px); }
+  .chat-panel {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    top: 12px;
+    width: auto;
+    max-width: none;
+    height: auto;
+    max-height: none;
+    border-radius: 16px;
+  }
+  .chat-input input { font-size: 16px; }
   .strip-track { font-size: 22px; gap: 36px; }
 }
+
+/* Lock background scroll when chat is open */
+body.chat-open { overflow: hidden; touch-action: none; }
+body.chat-open .chat-panel { touch-action: auto; }
+body.chat-open .chat-body { touch-action: pan-y; overscroll-behavior: contain; }
 @media (max-width: 540px) {
   .products { grid-template-columns: 1fr; }
 }

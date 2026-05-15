@@ -33,6 +33,12 @@ function Chatbot() {
   }, []);
 
   useEffectC(() => {
+    if (open) document.body.classList.add("chat-open");
+    else document.body.classList.remove("chat-open");
+    return () => document.body.classList.remove("chat-open");
+  }, [open]);
+
+  useEffectC(() => {
     if (!engineRef.current && window.ChatClient) {
       engineRef.current = new window.ChatClient();
     }

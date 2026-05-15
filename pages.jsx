@@ -41,10 +41,6 @@ function CategoryPage({ id, navigate }) {
             <h1 className="cat-title">{cat.name}</h1>
           </div>
           <div className="cat-intro">
-            <div className="cat-pill">
-              <span className="dot" style={{ background: cat.color }}></span>
-              Categoría {cat.num}
-            </div>
             <p style={{ margin: 0 }}>{data.intro}</p>
           </div>
         </div>

@@ -226,7 +226,6 @@ function CategorySection({ navigate }) {
             style={{ "--cat-color": c.color }}
             onClick={() => navigate(c.id)}
           >
-            <div className="cat-num">{c.num} / 03</div>
             <div className="cat-body">
               <div className="cat-name">{c.name}</div>
               <div className="cat-desc">{c.desc}</div>
