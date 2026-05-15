@@ -33,9 +33,24 @@ function Chatbot() {
   }, []);
 
   useEffectC(() => {
-    if (open) document.body.classList.add("chat-open");
-    else document.body.classList.remove("chat-open");
-    return () => document.body.classList.remove("chat-open");
+    if (!open) return;
+    const scrollY = window.scrollY;
+    const body = document.body;
+    body.classList.add("chat-open");
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+    return () => {
+      body.classList.remove("chat-open");
+      body.style.position = "";
+      body.style.top = "";
+      body.style.left = "";
+      body.style.right = "";
+      body.style.width = "";
+      window.scrollTo(0, scrollY);
+    };
   }, [open]);
 
   useEffectC(() => {
