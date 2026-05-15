@@ -60,19 +60,15 @@ function Chatbot() {
     const root = document.documentElement;
     const update = () => {
       root.style.setProperty("--vv-h", `${vv.height}px`);
-      root.style.setProperty("--vv-top", `${vv.offsetTop}px`);
       if (bodyRef.current) {
         bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
       }
     };
     update();
     vv.addEventListener("resize", update);
-    vv.addEventListener("scroll", update);
     return () => {
       vv.removeEventListener("resize", update);
-      vv.removeEventListener("scroll", update);
       root.style.removeProperty("--vv-h");
-      root.style.removeProperty("--vv-top");
     };
   }, [open]);
 
