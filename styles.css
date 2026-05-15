@@ -1077,11 +1077,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .chat-panel {
     left: 12px;
     right: 12px;
-    bottom: 12px;
-    top: 12px;
+    top: calc(var(--vv-top, 0px) + 12px);
+    bottom: auto;
     width: auto;
     max-width: none;
-    height: auto;
+    height: calc(var(--vv-h, 100dvh) - 24px);
     max-height: none;
     border-radius: 16px;
   }

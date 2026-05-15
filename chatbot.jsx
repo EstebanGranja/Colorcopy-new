@@ -39,6 +39,29 @@ function Chatbot() {
   }, [open]);
 
   useEffectC(() => {
+    if (!open) return;
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const root = document.documentElement;
+    const update = () => {
+      root.style.setProperty("--vv-h", `${vv.height}px`);
+      root.style.setProperty("--vv-top", `${vv.offsetTop}px`);
+      if (bodyRef.current) {
+        bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
+      }
+    };
+    update();
+    vv.addEventListener("resize", update);
+    vv.addEventListener("scroll", update);
+    return () => {
+      vv.removeEventListener("resize", update);
+      vv.removeEventListener("scroll", update);
+      root.style.removeProperty("--vv-h");
+      root.style.removeProperty("--vv-top");
+    };
+  }, [open]);
+
+  useEffectC(() => {
     if (!engineRef.current && window.ChatClient) {
       engineRef.current = new window.ChatClient();
     }
