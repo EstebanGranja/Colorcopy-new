@@ -120,6 +120,7 @@ function Chatbot() {
           <Icon.Robot width="32" height="32" />
         </button>
       )}
+      {open && <div className="chat-backdrop" aria-hidden="true" />}
       {open && (
         <div className="chat-panel" role="dialog" aria-label="Chat con Colorcopy">
           <header className="chat-head">
