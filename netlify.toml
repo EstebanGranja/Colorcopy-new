@@ -1,0 +1,23 @@
+[build]
+  publish = "."
+
+# / redirige a Colorcopy.html (porque el entry no se llama index.html)
+[[redirects]]
+  from = "/"
+  to = "/Colorcopy.html"
+  status = 200
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[dev]
+  port = 8888
+  publish = "."
+
+# Defaults para desarrollo local. Las API keys NO van aca (.env las cubre).
+[dev.environment]
+  CHAT_PROVIDER = "ollama"
+  OLLAMA_BASE_URL = "http://localhost:11434"
+  OLLAMA_MODEL = "qwen2.5:7b"
+  ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
