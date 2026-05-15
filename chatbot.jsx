@@ -4,7 +4,7 @@ const { useState: useStateC, useEffect: useEffectC, useRef: useRefC } = React;
 function Chatbot() {
   const [open, setOpen] = useStateC(false);
   const [messages, setMessages] = useStateC([
-    { from: "bot", text: "¡Hola! Soy Tinta, la asistente de Colorcopy. ¿En qué te puedo ayudar?" },
+    { from: "bot", text: "Hola! Soy Tinta, la asistente de Colorcopy, " },
   ]);
   const [showChips, setShowChips] = useStateC(true);
   const [typing, setTyping] = useStateC(false);
@@ -33,24 +33,9 @@ function Chatbot() {
   }, []);
 
   useEffectC(() => {
-    if (!open) return;
-    const scrollY = window.scrollY;
-    const body = document.body;
-    body.classList.add("chat-open");
-    body.style.position = "fixed";
-    body.style.top = `-${scrollY}px`;
-    body.style.left = "0";
-    body.style.right = "0";
-    body.style.width = "100%";
-    return () => {
-      body.classList.remove("chat-open");
-      body.style.position = "";
-      body.style.top = "";
-      body.style.left = "";
-      body.style.right = "";
-      body.style.width = "";
-      window.scrollTo(0, scrollY);
-    };
+    if (open) document.body.classList.add("chat-open");
+    else document.body.classList.remove("chat-open");
+    return () => document.body.classList.remove("chat-open");
   }, [open]);
 
   useEffectC(() => {
