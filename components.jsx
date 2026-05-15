@@ -100,8 +100,8 @@ function Header({ route, navigate }) {
           ))}
         </nav>
         <div className="header-actions">
-          <a className="icon-btn" href="#" aria-label="Instagram" title="Instagram"><Icon.Instagram /></a>
-          <a className="icon-btn" href="#" aria-label="Facebook" title="Facebook"><Icon.Facebook /></a>
+          <a className="icon-btn" href="https://www.instagram.com/colorcopystore" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><Icon.Instagram /></a>
+          <a className="icon-btn" href="https://www.facebook.com/colorcopyag" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><Icon.Facebook /></a>
         </div>
         <button
           className={"hamburger " + (menuOpen ? "is-open" : "")}
@@ -126,8 +126,8 @@ function Header({ route, navigate }) {
             </a>
           ))}
           <div className="mobile-social">
-            <a className="icon-btn" href="#" aria-label="Instagram" title="Instagram"><Icon.Instagram /></a>
-            <a className="icon-btn" href="#" aria-label="Facebook" title="Facebook"><Icon.Facebook /></a>
+            <a className="icon-btn" href="https://www.instagram.com/colorcopystore" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><Icon.Instagram /></a>
+            <a className="icon-btn" href="https://www.facebook.com/colorcopyag" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><Icon.Facebook /></a>
           </div>
         </div>
       </div>
@@ -273,12 +273,19 @@ function Footer({ navigate }) {
   return (
     <footer className="footer">
       <div className="footer-inner">
-        <div>
-          <div className="footer-mark">color<em>copy.</em></div>
-          <p style={{ maxWidth: 320, color: "var(--muted)", marginTop: 18, fontSize: 14, lineHeight: 1.5 }}>
-            Taller gráfico y de cartelería. Av. Siempre Viva 1234, CABA.
-            Lun a Vie · 9–18 hs.
-          </p>
+        <div className="footer-brand-col">
+          <div className="footer-brand-row">
+            <img src="assets/logo.jpg" alt="Colorcopy" className="footer-logo" />
+            <div className="footer-mark">COLORCOPY</div>
+          </div>
+          <a
+            className="footer-address"
+            href="https://www.google.com/maps/search/?api=1&query=Dr.+Ra%C3%BAl+Alfons%C3%ADn+151%2C+Alta+Gracia%2C+C%C3%B3rdoba"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Dr. Raúl Alfonsín 151, Alta Gracia, Córdoba
+          </a>
         </div>
         <div className="footer-col">
           <h4>Servicios</h4>
@@ -290,27 +297,19 @@ function Footer({ navigate }) {
           </ul>
         </div>
         <div className="footer-col">
-          <h4>Estudio</h4>
+          <h4>Contacto</h4>
           <ul>
-            <li><a>Nosotros</a></li>
-            <li><a>Casos</a></li>
-            <li><a>Clientes</a></li>
-            <li><a>Trabajá con nosotros</a></li>
+            <li><a href="https://www.instagram.com/colorcopystore" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.facebook.com/colorcopyag" target="_blank" rel="noopener noreferrer">Facebook</a></li>
           </ul>
         </div>
         <div className="footer-col">
-          <h4>Contacto</h4>
+          <h4>Horarios</h4>
           <ul>
-            <li><a>hola@colorcopy.com</a></li>
-            <li><a>+54 11 4321-0000</a></li>
-            <li><a>Instagram</a></li>
-            <li><a>Facebook</a></li>
+            <li>Lun a Vie · 9 a 18 hs</li>
+            <li>Sábados · 9 a 13 hs</li>
           </ul>
         </div>
-      </div>
-      <div className="footer-bottom">
-        <span>© 2026 Colorcopy · Todos los derechos reservados</span>
-        <span>★ Hecho con tinta en Buenos Aires</span>
       </div>
     </footer>
   );
